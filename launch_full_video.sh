@@ -1,13 +1,14 @@
 #!/bin/bash  
 
-# Path to sequence 015 with lossless compresion, it MUST be changed by your own path.
+# Filename of the video to be processed with its absolute path. 
 path_video='...your_own_path..../Seq_015/Seq_015.mov'
 
-# Path to config file it is inside of the project so doen't need to be changed,
-# modifing its parameters could lead to different results.
+# Relative path filename to the config file, the calibration parameters are tuned to those of Endoscope_03, the
+# one used in Seq_015.mov. If you process another sequence you might need to update the
+# calibration parameters.
 path_conf='./Examples/Monocular/Endomapper_endoscope_03_full_video.yaml'
 
-# Path to ORB vocabulary it is inside of the project so doen't need to be changed.
+# Relative path filename to ORB vocabulary.
 path_voc='./Vocabulary/ORBvoc.txt'
 
 ./Examples/Monocular/mono_endomapper ${path_voc} ${path_conf} ${path_video}
