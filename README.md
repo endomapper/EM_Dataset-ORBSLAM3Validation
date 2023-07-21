@@ -8,7 +8,7 @@ A full description of ORB-SLAM3 can be found at [ORB-SLAM3](https://github.com/U
 
 EM_Dataset-ORBSLAM3Validation is released under [GPLv3 license](https://github.com/UZ-SLAMLab/ORB_SLAM3/LICENSE). For a list of all code/library dependencies (and associated licenses), please see [Dependencies.md](https://github.com/UZ-SLAMLab/ORB_SLAM3/blob/master/Dependencies.md).
 
-For a closed-source version of ORB-SLAM3 for commercial purposes, please contact the authors: orbslam (at) unizar (dot) es.
+For a closed-source version of EM_Dataset-ORBSLAM3Validation for commercial purposes, please contact the authors: orbslam (at) unizar (dot) es.
 
 If you use EM_Dataset-ORBSLAM3Validation in an academic work, please cite:
   
@@ -31,10 +31,10 @@ We have tested the library in **Ubuntu 16.04** and **18.04**, but it should be e
 We use the new thread and chrono functionalities of C++11.
 
 ## Pangolin
-We use [Pangolin](https://github.com/stevenlovegrove/Pangolin) for visualization and user interface. Dowload and install instructions can be found at: https://github.com/stevenlovegrove/Pangolin.
+We use [Pangolin](https://github.com/stevenlovegrove/Pangolin) for visualization and user interface. Download and install instructions can be found at: https://github.com/stevenlovegrove/Pangolin.
 
 ## OpenCV
-We use [OpenCV](http://opencv.org) to manipulate images and features. Dowload and install instructions can be found at: http://opencv.org. **Required at leat 4.4. Tested with OpenCV 4.4.0**.
+We use [OpenCV](http://opencv.org) to manipulate images and features. Download and install instructions can be found at: http://opencv.org. **Required at least 4.4. Tested with OpenCV 4.4.0**.
 
 ## Eigen3
 Required by g2o (see below). Download and install instructions can be found at: http://eigen.tuxfamily.org. **Required at least 3.1.0**.
@@ -42,7 +42,7 @@ Required by g2o (see below). Download and install instructions can be found at: 
 ## DBoW2 and g2o (Included in Thirdparty folder)
 We use modified versions of the [DBoW2](https://github.com/dorian3d/DBoW2) library to perform place recognition and [g2o](https://github.com/RainerKuemmerle/g2o) library to perform non-linear optimizations. Both modified libraries (which are BSD) are included in the *Thirdparty* folder.
 
-# 3. Building ORB-SLAM3 library and examples
+# 3. Building EM_Dataset-ORBSLAM3Validation library and examples
 
 Clone the repository:
 ```
@@ -58,12 +58,15 @@ chmod +x build.sh
 
 This will create **libORB_SLAM3.so**  at *lib* folder and the executables in *Examples* folder.
 
-# 4. Running endomapper examples
+# 4. Running EndoMapper examples
 
-We provide two scripts to launch the full sequence `launch_full_video.sh` and the picked section which is in the paper `launch_section.sh`, both of them are already configured but it is mandatory change the path to the video of sequence 015 with lossless compresion (Seq_015.mov) in the next line on both files:
+We provide two scripts:
+ 1. `launch_full_video.sh` to process a full video.
+ 2. `launch_section.sh`, to process a definite section of the video
+both of them detail the tuning for EndoMapper videos. In any case, it is mandatory to define the absolute path and name to the processed video (Seq_015.mov) in the next line on both files:
 
 ```
-# Path to sequence 015 with lossless compresion, it MUST be changed by your own path.
+# Path to sequence 015 with lossless compression, it MUST be changed to your own path.
 path_video='...your_own_path..../Seq_015/Seq_015.mov'
 ```
 
@@ -84,16 +87,17 @@ NOTE: `chmod` only needs to be used once per file.
 
 # 5. Changing visual parameters
 
-Config files allow you to change visual options without recompiling the code, it would be necessary to obtain a good visualization on different screen resolutions.
+Config files allow you to change the visualisation options without recompiling the code, it would be necessary to obtain a good visualization on different screen resolutions.
 
-There are 2 viewers, one for the 3D map and other for the incoming image, the 3d viewer shows the 3D points, the KeyFrames which are represented as a blue pyrimids and the incoming camera pose which respect to the map as green piramid. The size of the points and pyramid lines can be changed with:
+Two windows are displayed, one for the 3D map and the other for the current frame. The 3D viewer shows the 3D points and the KeyFrames. The frames are represented
+as pyramids, red for the first keyframe, blue for past keyframes and green current frame. The size of the points and pyramid lines can be changed with:
 ```
 Viewer.KeyFrameLineWidth: 2.0 
 Viewer.PointSize: 4.0 
 Viewer.CameraLineWidth: 3.0
 ```
 
-The incoming image is show on color with its matched points on the 3D map and the size can be scalated by:
+The current frame is displayed with the matched 3D map points overlaid in green. The size of the window can be changed by:
 ```
 Viewer.FrameViewerZoom: 2.0
 ```
