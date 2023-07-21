@@ -1,0 +1,107 @@
+%YAML:1.0
+
+#--------------------------------------------------------------------------------------------
+# System config
+#--------------------------------------------------------------------------------------------
+
+# When the variables are commented, the system doesn't load a previous session or not store the current one
+
+# If the LoadFile doesn't exist, the system give a message and create a new Atlas from scratch
+#System.LoadAtlasFromFile: ""
+
+# The store file is created from the current session, if a file with the same name exists it is deleted
+#System.SaveAtlasToFile: ""
+
+# Set initial time of the sequence, in minutes and seconds ( >= 0 and < 60)
+System.initialTimeSecond: 0
+System.initialTimeMinute: 0
+
+# Set finish time of the sequence, in minutes and seconds ( >= 0 and < 60)
+# If end time is lower than initial time is ignored and the sequence is used until the end
+System.finishTimeSecond: 0
+System.finishTimeMinute: 0
+
+# Set initial and end frame number of the sequence ( > 0)
+# If end number is lower than initial number it is ignored and the sequence is used until the end
+# If both sequence start points are defined (time and number) it uses number as default
+System.initialNumberFrame: 54420
+System.finishNumberFrame:  55170
+
+#--------------------------------------------------------------------------------------------
+# Camera Parameters. Adjust them!
+#--------------------------------------------------------------------------------------------
+File.version: "1.0"
+
+Camera.type: "KannalaBrandt8"
+
+# Camera calibration and distortion parameters (OpenCV) 
+Camera1.fx: 726.7941
+Camera1.fy: 727.7907
+Camera1.cx: 742.7416
+Camera1.cy: 542.1428
+
+Camera1.k1: -0.1289632
+Camera1.k2: -0.006051189
+Camera1.k3: 0.001660961
+Camera1.k4: -7.847858e-05
+
+Camera.width: 1440
+Camera.height: 1080
+
+Camera.newWidth: 720
+Camera.newHeight: 540
+
+# Camera frames per second 
+Camera.fps: 25
+
+# Number of skipped video frames between the two processed frames of the V-SLAM.
+Camera.numSkippedFrames: 1
+
+# Color order of the images (0: BGR, 1: RGB. It is ignored if images are grayscale)
+Camera.RGB: 0
+
+# Image channel where the features are extracted (0:Gray, 1: Blue, 2: Green, 3: Red. Grayscale by default)
+Camera.channel2features: 2
+
+#--------------------------------------------------------------------------------------------
+# ORB Parameters
+#--------------------------------------------------------------------------------------------
+
+# ORB Extractor: Number of features per image
+ORBextractor.nFeatures: 2500
+
+# ORB Extractor: Scale factor between levels in the scale pyramid 	
+ORBextractor.scaleFactor: 1.2
+
+# ORB Extractor: Number of levels in the scale pyramid	
+ORBextractor.nLevels: 8
+
+# ORB Extractor: Fast threshold
+# Image is divided in a grid. At each cell FAST are extracted imposing a minimum response.
+# Firstly we impose iniThFAST. If no corners are detected we impose a lower value minThFAST
+# You can lower these values if your images have low contrast			
+ORBextractor.iniThFAST: 20
+ORBextractor.minThFAST: 7
+
+#--------------------------------------------------------------------------------------------
+# Optimization Parameters
+#--------------------------------------------------------------------------------------------
+
+# Each matched ORB point has its own reprojection error std (in pixels) called sigma. sigma = k * scale, where scale is the image scale of the ORB point. 
+# Default value: 1.0
+Optimization.kFactor: 2.0 
+
+#--------------------------------------------------------------------------------------------
+# Viewer Parameters
+#---------------------------------------------------------------------------------------------
+Viewer.KeyFrameSize: 0.05
+Viewer.KeyFrameLineWidth: 2.0
+Viewer.GraphLineWidth: 0.9
+Viewer.PointSize: 6.0
+Viewer.CameraSize: 0.08
+Viewer.CameraLineWidth: 3.0
+Viewer.ViewpointX: 0.0
+Viewer.ViewpointY: -0.7
+Viewer.ViewpointZ: -1.8
+Viewer.ViewpointF: 500.0
+Viewer.FrameViewerZoom: 2.0
