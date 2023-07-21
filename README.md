@@ -1,8 +1,8 @@
-# SLAM for Endomapper based on ORB-SLAM3
+# EM_Dataset-ORBSLAM3Validation
 
-### ORBSLAM3
 
-The software [ORB-SLAM3](https://github.com/UZ-SLAMLab/ORB_SLAM3) can be see on details in the previous link. We add the basic information about it and the compiling instructions.
+This software is a minor variation of ORB-SLAM3 to process EndoMapper dataset sequences.
+A full description of ORB-SLAM3 can be found at [ORB-SLAM3](https://github.com/UZ-SLAMLab/ORB_SLAM3). We add the basic information about it and the compiling instructions.
 
 # 1. License
 
