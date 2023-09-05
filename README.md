@@ -1,7 +1,10 @@
 # EM_Dataset-ORBSLAM3Validation
 
 
-This software is a minor variation of ORB-SLAM3 to process EndoMapper dataset sequences.
+This software is a minor variation of ORB-SLAM3 to process EndoMapper dataset sequences as described in the section “ORB-SLAM validation” of the publication:  
+
+    Azagra P. et al. Endomapper dataset of complete calibrated endoscopy procedures. Scientific Data. 2023. Accepted for publication.
+    
 A full description of ORB-SLAM3 can be found at [ORB-SLAM3](https://github.com/UZ-SLAMLab/ORB_SLAM3). We add the basic information about it and the compiling instructions.
 
 # 1. License
